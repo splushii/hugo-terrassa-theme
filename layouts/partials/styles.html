@@ -5,5 +5,7 @@
 {{ $animations := resources.Get "css/animations.css" }}
 {{ $bundle := slice $reset $base $style $media $animations | resources.Concat "css/bundle.css" }}
 {{ $css := $bundle | resources.Minify | resources.Fingerprint "sha512" }}
+{{ $custom := resources.Get .Site.Params.custom_css | resources.Minify | resources.Fingerprint "sha512" }}
 
 <link rel="stylesheet" href="{{ $css.Permalink }}">
+<link rel="stylesheet" href="{{ custom.Permalink }}">
