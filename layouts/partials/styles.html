@@ -8,4 +8,4 @@
 {{ $custom := resources.Get .Site.Params.custom_css | resources.Minify | resources.Fingerprint "sha512" }}
 
 <link rel="stylesheet" href="{{ $css.Permalink }}">
-<link rel="stylesheet" href="{{ custom.Permalink }}">
+<link rel="stylesheet" href="{{ $custom.Permalink }}">
